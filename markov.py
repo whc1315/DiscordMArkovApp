@@ -81,7 +81,13 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    # TODO: replace with code
+    if message.content.startswith('$hello'):
+        await message.channel.send('Hello!')
+    else:
+        chanins = make_chains(message.content)
+        print(chains)
+        random_text = make_text(chains)
+        await message.channel.send(random_text)
 
 
 client.run(os.environ['DISCORD_TOKEN'])
